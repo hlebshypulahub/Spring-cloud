@@ -22,9 +22,8 @@ dependencies {
 	testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
 	testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.2'
 
-//	testImplementation("org.springframework.boot:spring-boot-starter-test") {
-//		exclude group: "com.vaadin.external.google", module:"android-json"
-//	}
+	implementation 'org.springframework.kafka:spring-kafka:2.8.7'
+	testImplementation 'org.springframework.kafka:spring-kafka-test:2.8.7'
 }
 
 tasks.named('test') {

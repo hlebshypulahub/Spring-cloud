@@ -10,4 +10,11 @@ public class PcShopApplication {
 		SpringApplication.run(PcShopApplication.class, args);
 	}
 
+//	@Bean
+//	CommandLineRunner commandLineRunner(KafkaTemplate<String, String> kafkaTemplate) {
+//		return args -> {
+//			kafkaTemplate.send("pcshop", "Hello Kafka");
+//		};
+//	}
+
 }
