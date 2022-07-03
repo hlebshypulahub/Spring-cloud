@@ -1,0 +1,13 @@
+Aplikacja pcshop-api jest aplikacją webową z rest-api.
+
+Należy dodać funkcjonalność:
+
+- zamokować repo części komputerowych - kilka różnych od siebie. 
+
+- wystawić dane z repo jako json
+
+- umożliwić składanie prostego jednego zamówienia - bez ui tylko jako rest
+
+- dodać configuracje springa dla wstrzykiwanych zależności aplikacji 
+
+- do pracy z żądaniami rest polecana jest aplikacja Postman

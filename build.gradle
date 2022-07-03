@@ -1,0 +1,32 @@
+plugins {
+	id 'org.springframework.boot' version '2.7.0'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'java'
+}
+
+group = 'com.capgemini'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web:2.7.0'
+	implementation 'org.springframework.kafka:spring-kafka:2.8.5'
+	implementation group: 'org.codehaus.jettison', name: 'jettison', version: '1.5.0'
+	implementation 'org.apache.geode:geode-core:1.14.4'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test:2.7.0'
+	testImplementation 'org.springframework.kafka:spring-kafka-test:2.8.5'
+	testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
+	testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.2'
+
+//	testImplementation("org.springframework.boot:spring-boot-starter-test") {
+//		exclude group: "com.vaadin.external.google", module:"android-json"
+//	}
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}

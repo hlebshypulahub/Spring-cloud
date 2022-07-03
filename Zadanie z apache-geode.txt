@@ -1,0 +1,9 @@
+Użycie apache-geode w aplikacji pcshop
+
+- pobrać apache-geode i utworzyć nowy region o nazwie "psshop"
+- napisać testy, które dodają i odczytują 3 testowe orders
+- zaimplementować PcPartsRepository tak, aby zaczytywał dane z geode
+
+https://geode.apache.org/docs/guide/114/getting_started/geode_overview.html
+https://geode.apache.org/docs/guide/114/getting_started/installation/install_standalone.html
+https://www.baeldung.com/apache-geode
