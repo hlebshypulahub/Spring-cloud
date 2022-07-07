@@ -1,0 +1,11 @@
+1. Do PartsController dodać metoda zwracająca jeden Part na podstawie id z request. Przetestować tę motodę za pomocą postman.
+2. Zapoznać się z https://www.baeldung.com/spring-cloud-contract
+3. Aplikację pcshop-api neleży poszerzyć o testy CDC
+ A. Producer
+  - Dodać zależności do gradle
+  - Skonfigurać Producer analogicznie jak w tuturial
+  - Dodać Contract odpowiadający metodzie zwracającej Part (np. z pliku) na podstawie id. Dla jednego podanego id 200 dla innego http not found
+ B. Consumer
+  - Wygenerowac nowy projekt "pcshop-client" typu gradle za pomoca https://start.spring.io/
+  - Aplikacja ma zawierać kontroler z metoda "addToCart" z parametrem Id Part. Metoda ta robi żadanie do end-point z punktu pierwszego. (Analogicznie do BasicMathController z tutorial)
+  - Napisać testy analogicznie do Consumer Side Setup z tutorial. Jeden dla not found a drugi dla znalezionego Part.

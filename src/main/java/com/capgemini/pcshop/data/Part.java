@@ -4,38 +4,34 @@ package com.capgemini.pcshop.data;
 import java.io.Serializable;
 
 public class Part implements Serializable {
-    private int partId;
-    private String partName;
+    private int id;
+    private String name;
     private String producerCode;
 
     public Part(int Id, String name, String producerCode) {
-        this.partId = Id;
-        this.partName = name;
+        this.id = Id;
+        this.name = name;
         this.producerCode = producerCode;
-    }
-
-    public String getName() {
-        return partName;
     }
 
     public String getProducerCode() {
         return producerCode;
     }
 
-    public int getPartId() {
-        return partId;
+    public int getId() {
+        return id;
     }
 
-    public void setPartId(int partId) {
-        this.partId = partId;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public String getPartName() {
-        return partName;
+    public String getName() {
+        return name;
     }
 
-    public void setPartName(String partName) {
-        this.partName = partName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public void setProducerCode(String producerCode) {

@@ -2,6 +2,7 @@ package com.capgemini.pcshop;
 
 import com.capgemini.pcshop.data.Order;
 import org.apache.geode.cache.Region;
+import org.apache.geode.cache.RegionExistsException;
 import org.apache.geode.cache.client.ClientCache;
 import org.apache.geode.cache.client.ClientCacheFactory;
 import org.apache.geode.cache.client.ClientRegionShortcut;
@@ -29,9 +30,11 @@ class PcShopApplicationTests {
                 .addPoolLocator("localhost", 10334)
                 .create();
 
-        region = cache.<Integer, Order>
-                                        createClientRegionFactory(ClientRegionShortcut.CACHING_PROXY)
-                           .create("psshop-region");
+        try {
+            region = cache.<Integer, Order>createClientRegionFactory(ClientRegionShortcut.CACHING_PROXY).create("psshop-region");
+        } catch (RegionExistsException exception) {
+            region = cache.getRegion("psshop-region");
+        }
     }
 
     @Test

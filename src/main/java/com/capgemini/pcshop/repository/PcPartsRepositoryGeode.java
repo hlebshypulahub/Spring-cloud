@@ -6,6 +6,7 @@ import org.apache.geode.cache.RegionExistsException;
 import org.apache.geode.cache.client.ClientCache;
 import org.apache.geode.cache.client.ClientCacheFactory;
 import org.apache.geode.cache.client.ClientRegionShortcut;
+import org.apache.kafka.common.errors.ResourceNotFoundException;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
@@ -27,7 +28,7 @@ public class PcPartsRepositoryGeode implements PcPartsRepository {
         add(new Part(5, "Monitor", "48239523"));
         add(new Part(6, "Memory stick", "2382234"));
     }};
-    List<Integer> keys = parts.stream().map(Part::getPartId).collect(Collectors.toList());
+    List<Integer> keys = parts.stream().map(Part::getId).collect(Collectors.toList());
 
     @PostConstruct
     private void initRepository() {
@@ -51,7 +52,7 @@ public class PcPartsRepositoryGeode implements PcPartsRepository {
     private void addPartsToGeode() {
         Map<Integer, Part> mapOfParts = parts
                 .stream()
-                .collect(Collectors.toMap(Part::getPartId, Function.identity()));
+                .collect(Collectors.toMap(Part::getId, Function.identity()));
 
         region.putAll(mapOfParts);
     }
@@ -64,6 +65,12 @@ public class PcPartsRepositoryGeode implements PcPartsRepository {
 
     @Override
     public Part findByPartId(int partId) {
-        return region.get(partId);
+        Part part = region.get(partId);
+
+        if (part != null) {
+            return part;
+        }
+
+        throw new ResourceNotFoundException("Part not exists, id: " + partId);
     }
 }

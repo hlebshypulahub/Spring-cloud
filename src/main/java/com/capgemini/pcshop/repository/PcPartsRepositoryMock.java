@@ -27,7 +27,7 @@ public class PcPartsRepositoryMock implements PcPartsRepository {
     public Part findByPartId(int partId) {
         return parts
                 .stream()
-                .filter(part -> part.getPartId() == partId)
+                .filter(part -> part.getId() == partId)
                 .findAny()
                 .orElseThrow(() -> new ResourceNotFoundException("Part not exists, id: " + partId));
     }
